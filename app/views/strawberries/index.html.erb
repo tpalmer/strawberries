@@ -1,0 +1,18 @@
+<% title "Strawberries" %>
+
+<h1>There's <%= "#{pluralize(Strawberry.count, 'strawberry')}" -%></h1>
+<table>
+  <tr>
+    <th>Color</th>
+  </tr>
+  <% for strawberry in @strawberries %>
+    <tr>
+      <td><%= strawberry.color %></td>
+      <td><%= link_to "Show", strawberry %></td>
+      <td><%= link_to "Edit", edit_strawberry_path(strawberry) %></td>
+      <td><%= link_to "Eat the #{strawberry.color} strawberry", strawberry, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Strawberry", new_strawberry_path %></p>
